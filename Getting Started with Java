@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+public class Main
+{
+    public static void main(String[] args) 
+    {
+        Scanner trial = new Scanner(System.in);
+        
+        System.out.println("Please enter the details asked below for your ID Card");
+        System.out.println("");
+        
+        
+        //taking name input
+        System.out.print("Enter your name: ");
+        String name = trial.next();
+        
+        //taking age input
+        System.out.print("Enter your age: ");
+        int age = trial.nextInt();
+        
+        //taking gender input
+        System.out.print("Enter your gender: ");
+        String gender = trial.next();
+        
+        //taking DOB input
+        System.out.print("Enter your DOB: ");
+        String dob = trial.next();
+        
+        //taking enrolment number input
+        System.out.print("Enter your enrolment number: ");
+        String enrolno = trial.next();
+        
+        
+        //Printing Final details
+        System.out.println("Your name is: " + name);
+        System.out.println("Your age is: " + age);
+        System.out.println("Your gender is: " + gender);
+        System.out.println("Your DOB is: " + dob);
+        System.out.println("Your enrolment number is: " + enrolno);
+    }
+}
