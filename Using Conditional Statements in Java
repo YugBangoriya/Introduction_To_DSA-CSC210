@@ -1,0 +1,39 @@
+import java.util.Scanner;
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        Scanner trial = new Scanner(System.in);
+       
+        System.out.println("Enter your details to obtain your voter ID Card");
+        System.out.println("");
+       
+       
+        //taking name input
+        System.out.print("Enter your name: ");
+        String name = trial.next();
+       
+        //taking age input
+        System.out.print("Enter your age: ");
+        int age = trial.nextInt();
+        
+        System.out.println("");
+        
+        //checking further conditions
+        if (age >= 18)
+        {
+            //checking nationality
+            System.out.print("Do you have Indian Passport? (Yes/No): ");
+            String check = trial.next();
+            String result = check.equalsIgnoreCase("Yes") ? "Eligible" : "Not Eligible";
+            System.out.println("You are: " + result + " for voting");
+        }
+        else
+        {
+            System.out.println("You are not eligible for voting");
+        }
+        
+        trial.close();
+    }
+}
