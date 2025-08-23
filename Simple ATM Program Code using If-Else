@@ -1,0 +1,92 @@
+import java.util.Scanner;
+public class Main 
+{
+    public static void main(String[] args) 
+    {
+        Scanner atm = new Scanner(System.in);
+        String pwd = "124421";
+        int bal = 50000;
+
+        while (true) 
+        {
+            System.out.println("Please Insert Your Card");
+            System.out.println("Reading Card ......");
+            System.out.println("Card Successfully Scanned\n");
+
+            System.out.println("Your Language is set to English by default\n");
+
+            System.out.println("What function do you want to perform?");
+            System.out.println("1. Withdraw\n2. Deposit\n3. Exit");
+            System.out.print("Enter option: ");
+            String fxn = atm.nextLine();
+
+            // Withdraw option
+            if (fxn.equalsIgnoreCase("Withdraw") || fxn.equals("1")) 
+            {
+                System.out.print("Enter the amount that you want to withdraw: ");
+                int amt = atm.nextInt();
+                atm.nextLine(); // consume newline
+                //Amount Check
+                if (amt <= bal) 
+                {
+                    System.out.print("Enter your password: ");
+                    String fpwd = atm.nextLine();
+                    // Password Check
+                    if (fpwd.equals(pwd)) 
+                    {
+                        System.out.println("You have entered the correct password");
+                        bal = bal - amt;
+                        System.out.println("Ejecting cash...");
+                        System.out.println("Receipt: You withdrew " + amt);
+                        System.out.println("Remaining Balance: " + bal);
+                    } 
+                    else 
+                    {
+                        System.out.println("You have entered the incorrect password");
+                    }
+                } 
+                else 
+                {
+                    System.out.println("You don't have sufficient balance to withdraw cash");
+                }
+            }
+
+            // Deposit option
+            else if (fxn.equalsIgnoreCase("Deposit") || fxn.equals("2")) 
+            {
+                System.out.print("Enter the amount that you want to deposit: ");
+                int amt = atm.nextInt();
+                atm.nextLine(); // consume newline
+                System.out.print("Enter your password: ");
+                String fpwd = atm.nextLine();
+                // Password Check
+                if (fpwd.equals(pwd)) 
+                {
+                    System.out.println("You have entered the correct password");
+                    bal = bal + amt;
+                    System.out.println("Cash deposited successfully");
+                    System.out.println("Receipt: You deposited " + amt);
+                    System.out.println("New Balance: " + bal);
+                } 
+                else 
+                {
+                    System.out.println("You have entered the incorrect password");
+                }
+            }
+
+            // Exit option
+            else if (fxn.equalsIgnoreCase("Exit") || fxn.equals("3")) 
+            {
+                System.out.println("Thank you for using our ATM!");
+                break;
+            }
+
+            // Wrong option
+            else 
+            {
+                System.out.println("Invalid option. Please try again.\n");
+            }
+        }
+        atm.close();
+    }
+}
