@@ -1,0 +1,46 @@
+import java.util.Scanner;
+
+public class Main 
+{
+    public static void main(String[] args) 
+    {
+        Scanner marks = new Scanner(System.in);
+
+        // Taking ano. of students as input
+        System.out.print("Enter number of students: ");
+        int n = marks.nextInt();
+        marks.nextLine();
+
+        // Declaring Array
+        String[] names = new String[n];
+        int[] score = new int[n];
+
+
+        // Taking name as input
+        System.out.println("\nEnter names of students one by one: ");
+        for (int i = 0; i < n; i++) 
+        {
+            System.out.print("Enter name for student " + (i + 1) + ": ");
+            names[i] = marks.nextLine();
+        }
+
+
+        // Taking marks as input
+        System.out.println("\nEnter marks for each student:");
+        for (int i = 0; i < n; i++) 
+        {
+            System.out.print("Enter marks for " + names[i] + ": ");
+            score[i] = marks.nextInt();
+        }
+
+
+        // Final List
+        System.out.println("");
+        System.out.println("--- Student Marks List ---");
+        for (int i = 0; i < n; i++) 
+        {
+            System.out.println("Student: " + names[i] + ", Marks: " + score[i]);
+        }
+        marks.close();
+    }
+}
